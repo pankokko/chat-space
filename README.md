@@ -25,12 +25,11 @@
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|text||null: false|
-|text|text||null: false|
-||integer|null: false, foreign_key: true|
+|name|text||null: false|
 ### Association
 - has_many :users through: groups_user
   has_many :groups_user
+　has_many :comments
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -38,5 +37,7 @@
 |text|text|null: false|
 |image|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+ belongs_to :group
