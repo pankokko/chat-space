@@ -16,8 +16,6 @@
 ## groups_userテーブル
 |Column|Type|Options|
 |------|----|-------|
-||text||
-|group_id|text||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false,foreign_key: true|
 ### Association
