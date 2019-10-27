@@ -1,0 +1,5 @@
+@mixin text($color: #fff, $fsize: 0px,$bcolor:#fff ) {
+  color: $color;
+  font-size: $fsize;
+  background-color: $bcolor;
+}

@@ -1,0 +1,52 @@
+%body
+  .wrapper
+    .header
+      %p.header__p  グループを作成しました
+    .main
+      .chat-side
+        .chat-side__header
+          .chat-side__header__box
+            %p てっくえきすぱーと  
+            %ul.side-header__box__menu                     
+              %li.side-header__box__menu__new-group
+                = link_to root_path do
+                  %i.fa.fa-edit
+              %li.side-header__box__menu__edit-user
+                = link_to root_path do
+                  %i.fa.fa-cog
+        .chat-side__group
+          %p.group-name テックエキスパートBチーム
+          %p.group-comment こんにちは
+          %p.group-name グループC
+          %p.group-comment 今日も頑張るぞ
+          %p.group-name example
+          %p.group-comment まだメッセージがありません
+      .chat-main
+        .chat-main__header
+          .chat-main__header__left-box
+            %p.left-box__team テックエキスパートBチーム
+            %p.left-box__member Member：てっくえきすぱーと
+          = link_to root_path do
+            .main-header__edit-btn 
+              %p Edit
+        .chat-main__messages
+          .chat-main__message
+            .chat-main__message__upper-info
+              %p.chat-main__message__upper-info__talker てっくえきすぱーと
+              %p.chat-main__message__upper-info__date 2019/10/25(Fri) 11:35:00
+            %p.chat-main_message__text みなさんこんにちは
+          .chat-main__message
+            .chat-main__message__upper-info
+              %p.chat-main__message__upper-info__talker 生徒B
+              %p.chat-main__message__upper-info__date 2019/10/25(Fri) 12:45:00
+            %p.chat-main_message__text 今日は晴れです
+        .chat-main__form
+          %form.chat-main__form__new_message{"accept-charset" => "UTF-8", :action => "/groups/3561/messages", :enctype => "multipart/form-data", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "S3exu+7qYLr5X/2Uo4YFSPp/T+obKZyxVmaMXsOXADrZo+Oy/ubZVZe6MmxPeGua7sJFhXYXe0iiGmWmpS2ZlQ=="}/
+            .input-box
+              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+              %label.input-box__image{:for => "message_image"}
+                %i.fa.fa-image
+                %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
+            %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
