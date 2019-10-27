@@ -1,0 +1,73 @@
+*{box-sizing: border-box;}
+
+a { text-decoration: none; }
+
+.main{
+  height: 100vh;
+  width:100vw;
+}
+
+.chat-main{
+  width:calc(100vw - 300px);
+  height:100%;  
+  float:right;
+  box-sizing: border-box;
+  &__header{
+    padding:0 40px;
+    display:flex;
+    height:100px;
+    border-bottom:solid 1px #eee;
+    justify-content:space-between;
+  }
+  &__messages{
+    height:calc(100vh - 190px);
+    padding:0 40px;
+  }
+}
+
+.chat-main__message__upper-info{
+  padding-top:46px;
+  display:flex;
+  margin-bottom:10px;
+  &__talker{
+   font-size:16px;
+   font-weight:bold;
+  }
+  &__date{
+    color:$datecolor;
+    font-size:12px;
+    margin-left:10px;
+  }
+
+}
+
+.chat-main_message__text{
+  color:#434a54;
+  font-size:14px;
+}
+
+.chat-main__header__left-box{
+  margin-top:35px;
+}
+
+.left-box__team{
+  font-size:20px;
+  color:#333333;
+}
+.left-box__member{
+  font-size:12px;
+  color:$datecolor;
+  margin-top:15px;
+}
+
+.main-header__edit-btn{
+  height:40px;
+  padding:0 20px;
+  border:solid 1px $skyblue;
+  color:$skyblue;
+  margin-top:30px;
+  line-height:40px;
+  position:absolute;
+  right:40px;
+}
+
