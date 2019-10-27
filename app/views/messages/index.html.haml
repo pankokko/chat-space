@@ -9,11 +9,11 @@
             %p てっくえきすぱーと  
             %ul.side-header__box__menu                     
               %li.side-header__box__menu__new-group
-                %a{:href => "#"}
-                  = fa_icon "edit"
+                = link_to root_path do
+                  %i.fa.fa-edit
               %li.side-header__box__menu__edit-user
-                %a{:href => "#"}
-                  = fa_icon "cog"
+                = link_to root_path do
+                  %i.fa.fa-cog
         .chat-side__group
           %p.group-name テックエキスパートBチーム
           %p.group-comment こんにちは
@@ -26,7 +26,7 @@
           .chat-main__header__left-box
             %p.left-box__team テックエキスパートBチーム
             %p.left-box__member Member：てっくえきすぱーと
-          %a{:href => "/"}
+          = link_to root_path do
             .main-header__edit-btn 
               %p Edit
         .chat-main__messages

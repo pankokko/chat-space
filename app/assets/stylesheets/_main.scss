@@ -19,6 +19,9 @@ a { text-decoration: none; }
     border-bottom:solid 1px #eee;
     justify-content:space-between;
   }
+  &__header__left-box{
+    margin-top:35px;
+  }
   &__messages{
     height:calc(100vh - 190px);
     padding:0 40px;
@@ -46,9 +49,7 @@ a { text-decoration: none; }
   font-size:14px;
 }
 
-.chat-main__header__left-box{
-  margin-top:35px;
-}
+
 
 .left-box__team{
   font-size:20px;
