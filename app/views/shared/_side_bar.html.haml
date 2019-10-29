@@ -13,10 +13,11 @@
   .chat-side__group
     - current_user.groups.each do |group|
       .group
-        = link_to edit_user_path(current_user) do
+        = link_to group_messages_path(group) do
           %p.group-name
             = group.name
-          %p.group-comment メッセージはまだありません。
+          %p.group-comment 
+            = group.show_last_message
             
 
         
