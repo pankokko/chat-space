@@ -24,17 +24,20 @@
     height: calc(100vh - 100px); 
     padding-left:20px;
     padding-right:20px;
+    overflow:scroll;
    }
    
 .group-name{
   font-size:15px;
   font-weight:bold;  
   padding-top:20px;
+  color:white;
 }
 .group-comment{
   font-size:11px;
   padding-top:5px;
   padding-bottom:40px;
+  color:white;
  }
   .side-header__box__menu{
      display:flex;
@@ -53,4 +56,5 @@
       color:white;
     }
 }
+
 

@@ -3,26 +3,7 @@
     .header
       %p.header__p 
     .main
-      .chat-side
-        .chat-side__header
-          .chat-side__header__box
-            %p 
-              = current_user.name
-            %ul.side-header__box__menu                     
-              %li.side-header__box__menu__new-group
-                = link_to root_path do
-                  %i.fa.fa-edit
-              %li.side-header__box__menu__edit-user
-                = link_to edit_user_path(current_user) do
-                  %i.fa.fa-cog
-                  
-        .chat-side__group
-          %p.group-name テックエキスパートBチーム
-          %p.group-comment こんにちは
-          %p.group-name グループC
-          %p.group-comment 今日も頑張るぞ
-          %p.group-name example
-          %p.group-comment まだメッセージがありません
+      = render 'shared/side_bar'
       .chat-main
         .chat-main__header
           .chat-main__header__left-box
@@ -42,6 +23,7 @@
               %p.chat-main__message__upper-info__talker 生徒B
               %p.chat-main__message__upper-info__date 2019/10/25(Fri) 12:45:00
             %p.chat-main_message__text 今日は晴れです
+            
         .chat-main__form
           %form.chat-main__form__new_message{"accept-charset" => "UTF-8", :action => "/groups/3561/messages", :enctype => "multipart/form-data", :method => "post"}
             %input{:name => "utf8", :type => "hidden", :value => "✓"}/
