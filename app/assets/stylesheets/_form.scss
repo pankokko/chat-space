@@ -1,39 +1,49 @@
-.chat-main__form{
-  height:90px;
-  padding:20px 40px;
- background-color:#ddd;
-   &__new_message{
-     display:flex;
- } 
-}
-
-.input-box{
-  position:relative;
-  width:100%;
-    &__image{
-      font-size:1.3rem;
-      position:absolute;
-      top:10px;
-      right:10px;
-      cursor:pointer;  
-    }
-    &__text{
-      height:50px;
-      width:100%;
-      padding:0px 40px 0px 10px;
-    }
-}
-
-
-  .submit-btn{
-    background-color:#38AEF0;
-    color:white;
-    height:50px;
-    padding:0px 30px;
-    margin-left:15px;
-    cursor:pointer;
-  }
-
-  .input-box__image__file{
-    display:none
-  }
+  .form {
+    background-color: #ddd;
+    height: 90px;
+    padding:20px 40px;
+    box-sizing: border-box;
+      &__message {
+        height: 50px;
+        width: calc(100% - 40px);
+        padding: 0 40px 0 10px;
+        color: #434a54;
+        border-style: none;
+      }
+      &__mask {
+        position: relative;
+          &__image {
+            font-size: 1.3rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+      }
+      &__submit {
+        height: 50px;
+        width: 110px;
+        padding: 0 30px;
+        margin-left: 15px;
+        background-color: #38aef0;
+        color: white;
+        cursor: pointer;
+      }
+   }
+   .new_message {
+    display: flex;
+   }
+   .icon {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+   }
+   .hidden {
+    display: none;
+   }
+   .field_with_errors {
+    display: contents;
+   }

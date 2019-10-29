@@ -12,25 +12,14 @@
           = link_to root_path do
             .main-header__edit-btn 
               %p Edit
-        .chat-main__messages
-          .chat-main__message
-            .chat-main__message__upper-info
-              %p.chat-main__message__upper-info__talker てっくえきすぱーと
-              %p.chat-main__message__upper-info__date 2019/10/25(Fri) 11:35:00
-            %p.chat-main_message__text みなさんこんにちは
-          .chat-main__message
-            .chat-main__message__upper-info
-              %p.chat-main__message__upper-info__talker 生徒B
-              %p.chat-main__message__upper-info__date 2019/10/25(Fri) 12:45:00
-            %p.chat-main_message__text 今日は晴れです
-            
-        .chat-main__form
-          %form.chat-main__form__new_message{"accept-charset" => "UTF-8", :action => "/groups/3561/messages", :enctype => "multipart/form-data", :method => "post"}
-            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            %input{:name => "authenticity_token", :type => "hidden", :value => "S3exu+7qYLr5X/2Uo4YFSPp/T+obKZyxVmaMXsOXADrZo+Oy/ubZVZe6MmxPeGua7sJFhXYXe0iiGmWmpS2ZlQ=="}/
-            .input-box
-              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-              %label.input-box__image{:for => "message_image"}
-                %i.fa.fa-image
-                %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
-            %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        .messages
+          = render @messages
+        .form
+          = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+            .form__mask
+              = f.label :image, class: 'form__mask__image' do
+                = fa_icon 'picture-o', class: 'icon'
+                = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', class: 'form__submit'
+        
