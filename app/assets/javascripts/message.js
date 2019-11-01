@@ -40,9 +40,9 @@ return html;
       .done(function(message){
        var html = buildmessage(message);
        $('.messages').append(html)
-        $('.form__message').val('')
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
         $('.form-submit').prop('disabled', true);
+        $('.new_message')[0].reset();
       })
       .fail(function(){
         alert("メッセージ送信に失敗しました");
