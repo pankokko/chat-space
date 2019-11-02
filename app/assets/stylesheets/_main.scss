@@ -62,7 +62,7 @@ a { text-decoration: none; }
   margin-top:15px;
 }
 
-.main-header__edit-btn{
+.main-header__edit-btn {
   height:40px;
   padding:0 20px;
   border:solid 1px $skyblue;
@@ -77,4 +77,8 @@ a { text-decoration: none; }
   height: calc(100vh - 190px);
   overflow: scroll;
   padding:46px 40px;
+}
+
+.main-header__right-box__button{
+  color:$skyblue;
 }

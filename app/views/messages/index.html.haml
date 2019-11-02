@@ -11,7 +11,7 @@
             %p.left-box__member Member：てっくえきすぱーと
           = link_to root_path do
             .main-header__edit-btn 
-              %p Edit
+              = link_to "Edit", edit_group_path(@group), class:"main-header__right-box__button"
         .messages
           = render @messages
         .form
