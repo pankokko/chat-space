@@ -2,7 +2,7 @@ $(function(){
 
 function buildmessage(message){
 
-  var addImage = (message.image !== null) ? `<img class="chat-main_message__text " src="${message.image.url}">` : ''
+  var addImage = (message.image.url !== null) ? `<img class="chat-main_message__text " src="${message.image.url}">` : ''
 
      var html = `<div class="chat-main__message">
      <div class="chat-main__message__upper-info">
