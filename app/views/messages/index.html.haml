@@ -7,7 +7,7 @@
       .chat-main
         .chat-main__header
           .chat-main__header__left-box
-            %p.left-box__team テックエキスパートBチーム
+            %p.left-box__team{"data-userid": "#{@group.id}"} テックエキスパートBチーム
             %p.left-box__member Member：てっくえきすぱーと
           = link_to root_path do
             .main-header__edit-btn 
