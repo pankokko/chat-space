@@ -7,7 +7,7 @@
       .chat-main
         .chat-main__header
           .chat-main__header__left-box
-            %p.left-box__team{"data-groupid": "#{@group.id}"} テックエキスパートBチーム
+            %p.left-box__team{"data-groupid": "#{@group.id}"} #{@group.name}
             %ul.left-box__member
               Member：
               - @group.users.each do|user|
