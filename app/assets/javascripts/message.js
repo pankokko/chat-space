@@ -53,9 +53,9 @@ return html;
     
     var reloadMessages = function() {
       if (location.href.match(/\/groups\/\d+\/messages/)){
-         console.log(location.href)
+        
       last_message_id = $('.chat-main__message').last().data('id');
-      group_id = $('.left-box__team').data('userid');
+      group_id = $('.left-box__team').data('groupid');
       $.ajax({
         //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
         url: `/groups/${group_id}/api/messages`,

@@ -7,11 +7,13 @@
       .chat-main
         .chat-main__header
           .chat-main__header__left-box
-            %p.left-box__team{"data-userid": "#{@group.id}"} テックエキスパートBチーム
-            %p.left-box__member Member：てっくえきすぱーと
-          = link_to root_path do
-            .main-header__edit-btn 
-              = link_to "Edit", edit_group_path(@group), class:"main-header__right-box__button"
+            %p.left-box__team{"data-groupid": "#{@group.id}"} テックエキスパートBチーム
+            %ul.left-box__member
+              Member：
+              - @group.users.each do|user|
+                %li.main-header__left-box__member-list__member  #{user.name}
+          .main-header__edit-btn 
+            = link_to "Edit", edit_group_path(@group), class:"main-header__right-box__button"
         .messages
           = render @messages
         .form
@@ -23,3 +25,4 @@
                 = f.file_field :image, class: 'hidden'
             = f.submit 'Send', class: 'form__submit'
         
+ 
