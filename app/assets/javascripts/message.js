@@ -73,7 +73,7 @@ return html;
         })
       })
       .fail(function() {
-        console.log('error');
+        alert("通信エラーです。メッセージが表示できません");
       }); 
     };
   }
