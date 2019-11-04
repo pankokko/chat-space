@@ -52,8 +52,7 @@ return html;
 
     
     var reloadMessages = function() {
-      if (location.href.match(/\/groups\/\d+\/messages/)){
-        
+      if (location.href.match(/\/groups\/\d+\/messages/)){  
       last_message_id = $('.chat-main__message').last().data('id');
       group_id = $('.left-box__team').data('groupid');
       $.ajax({
@@ -66,8 +65,12 @@ return html;
         data: {id: last_message_id},
       })
       .done(function(messages) {
-        console.log('success');
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});  
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildmessage(message);
+          $('.messages').append(insertHTML);
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        })
       })
       .fail(function() {
         console.log('error');
@@ -75,7 +78,7 @@ return html;
     };
   }
     setInterval(reloadMessages, 5000); 
-
+  
   });
 
 
