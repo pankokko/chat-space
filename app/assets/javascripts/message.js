@@ -4,7 +4,7 @@ function buildmessage(message){
 
   var addImage = (message.image.url !== null) ? `<img class="chat-main_message__text " src="${message.image.url}">` : ''
 
-     var html = `<div class="chat-main__message">
+     var html = `<div class="chat-main__message" data-id="${message.id}">
      <div class="chat-main__message__upper-info">
      <div class="chat-main__message__upper-info__talker">
      ${message.user_name}
@@ -35,19 +35,50 @@ return html;
           data: formData,
           dataType:'json',
           processData: false,
-          contentType: false
+          contentType: false,
         })
       .done(function(message){
        var html = buildmessage(message);
-       $('.messages').append(html)
-         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-        $('.form-submit').prop('disabled', true);
+        $('.messages').append(html)
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
         $('.new_message')[0].reset();
+        $('.form__submit').prop('disabled', false);
       })
       .fail(function(){
         alert("メッセージ送信に失敗しました");
+        $('.form__submit').prop('disabled', false);
       })
     })
+
+    
+    var reloadMessages = function() {
+      if (location.href.match(/\/groups\/\d+\/messages/)){  
+      last_message_id = $('.chat-main__message').last().data('id');
+      group_id = $('.left-box__team').data('groupid');
+      $.ajax({
+        //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
+        url: `/groups/${group_id}/api/messages`,
+        //ルーティングで設定した通りhttpメソッドをgetに指定
+        type: 'get',
+        dataType: 'json',
+        //dataオプションでリクエストに値を含める
+        data: {id: last_message_id},
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildmessage(message);
+          $('.messages').append(insertHTML);
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        })
+      })
+      .fail(function() {
+        alert("通信エラーです。メッセージが表示できません");
+      }); 
+    };
+  }
+    setInterval(reloadMessages, 5000); 
+  
   });
 
 
